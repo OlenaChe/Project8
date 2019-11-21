@@ -1,0 +1,22 @@
+
+// Set a custom color
+$rooibos: #C45525 !default;
+$moules: #345A61 !default;
+
+// Set primary color to orange
+$primary: $rooibos !default;
+
+// Font overrides
+$font-family-sans-serif: "Open Sans", sans-serif !default;
+$font-family-serif: "Scope One", sans-serif !default;
+$font-family-base: $font-family-serif !default;
+$headings-font-family: $font-family-sans-serif !default;
+
+
+@import "node_modules/bootstrap/scss/bootstrap";
+@import "scss/variables";
+@import "scss/masthead";
+@import "scss/global";
+@import "scss/navbar";
+@import "scss/portfolio";
+@import "scss/creative.scss";
