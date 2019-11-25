@@ -1,0 +1,42 @@
+
+{% extends 'sub/base.html' %}
+
+{% block content %}
+    
+<!-- Registration form -->
+<section class="bg-light py-5">
+    <div class="container">
+    </div>
+</section>
+<section class="bg-secondary py-5 text-white block py-5">
+    <div class="container">
+    <div class="row h-25 justify-content-center align-items-center">
+        <h4 class="align-text-bottom">________</h4>
+    </div>
+    <div class="row h-25 justify-content-center align-items-center">
+        <h4 class="align-text-bottom">Bienvenue</h4>
+    </div>
+    <div class="row h-25 justify-content-center align-items-center">
+        <h4 class="align-text-bottom">prénom utilisateur</h4>
+    </div>
+    </div>
+</section>
+<section class="bg-light py-5">
+    <div class="container">
+        <div class="row h-25 justify-content-center align-items-center">
+            <form method="POST" action="{% url 'register' %}">
+                {% csrf_token %}
+                {% if form.errors %}
+                <p>il y a une erreur dans la forme</p>
+                {% endif %}
+
+                {{ form}}
+
+                <input type="submit" value="Register">
+
+            </form>
+        
+        </div>
+    </div>
+</section>
+{% endblock %}

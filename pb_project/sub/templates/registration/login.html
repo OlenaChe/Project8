@@ -1,0 +1,43 @@
+{% extends 'sub/base.html' %}
+
+{% block content %}
+
+<!-- Account -->
+<section class="bg-light py-5">
+  <div class="container">
+  </div>
+</section>
+<section class="bg-secondary py-5 text-white block py-5">
+  <div class="container">
+    <div class="row h-25 justify-content-center align-items-center">
+      <h4 class="align-text-bottom">________</h4>
+    </div>
+    <div class="row h-25 justify-content-center align-items-center">
+      <h4 class="align-text-bottom">Bienvenue</h4>
+    </div>
+    <div class="row h-25 justify-content-center align-items-center">
+      <h4 class="align-text-bottom">prénom utilisateur</h4>
+    </div>
+  </div> 
+</section>
+
+<section class="bg-light py-5">
+  <div class="container">
+    <div class="row h-25 justify-content-center align-items-center">
+      <form method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
+        {{ form.username.label_tag }}
+        {{ form.username }}
+        <br>
+        {{ form.password.label_tag }}
+        {{ form.password }}
+        {{ form.errors }}
+        <input type="submit" value="Login">
+        <br>
+        <a href="{% url 'register' %}">---Nouvel utilisateur ? S'inscrire ici---</a>
+      </form>
+    </div>
+  <div>
+</section>
+
+{% endblock %}

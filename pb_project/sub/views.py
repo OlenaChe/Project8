@@ -1,19 +1,40 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import authenticate, login
 
-from .models import ALBUMS
+#from .models import ALBUMS
 
 
 def index(request):
     return render(request, 'sub/index.html')
 
-def account(request):
-    return render(request, 'sub/account.html')
+def accounts(request):
+    return render(request, 'registration/login.html')
+
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
+            user = authenticate(username = username, password = password)
+            login(request, user)
+            return redirect('index')
+
+    else:
+        form = UserCreationForm()
+    context = {'form':form}
+    return render(request, 'registration/register.html', context)
 
 def result(request):
     return render(request, 'sub/result.html')
 
 def products(request):
     return render(request, 'sub/products.html')
+
+def mentions(request):
+    return render(request, 'sub/mentions.html')
 
 #---------------------------
 def detail(request, album_id):
