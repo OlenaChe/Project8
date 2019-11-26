@@ -2,3 +2,6 @@
 env/
 *.pyc
 sub/.DS_Store
+sub/static/sub/.DS_Store
+sub/templates/.DS_Store
+sub/static/sub/.DS_Store
