@@ -17,19 +17,25 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path  # For django versions from 2.0 and up
 from django.conf import settings
-from django.contrib.auth.views import LoginView
+#from django.contrib.auth.views import LoginView, LogoutView
+
 
 from sub import views
 
 urlpatterns = [
-    path('admin_pb/', admin.site.urls),
-    path('login/', LoginView.as_view(), name='login'),
-    path('register/', views.register, name="register"),
-    path('', include('sub.urls')),
-    #path('accounts/', include('django.contrib.auth.urls')),
-
     path('', views.index),
-    path('sub/', include('sub.urls')),
+    path('admin_pb/', admin.site.urls),
+    path('login/', views.login, name='login'),
+    path('accounts/', include('django.contrib.auth.urls')),
+    #path('login/', LoginView.as_view(), name='login'),
+    #path('logout/', views.logout, name='logout'),
+    path('register/', views.register, name="register"),
+    #path('logout/', views.logout, name="logout"),
+    path('', include('sub.urls')),
+    
+
+    
+    #path('sub/', include('sub.urls')),
     
     
     

@@ -13,11 +13,14 @@
       <h4 class="align-text-bottom">________</h4>
     </div>
     <div class="row h-25 justify-content-center align-items-center">
-      <h4 class="align-text-bottom">Bienvenue</h4>
-    </div>
-    <div class="row h-25 justify-content-center align-items-center">
-      <h4 class="align-text-bottom">username</h4>
-    </div>
+      <h4 class="align-text-bottom">
+        {%if user.is_authenticated %} 
+        <p>Bienvenue {{ user.username }}!</p>
+        {% else %}
+        <p>Vous n'êtes pas connecté</p>
+        {% endif %}
+      </h4>
+    </div>   
   </div> 
 </section>
 
