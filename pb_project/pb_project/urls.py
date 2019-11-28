@@ -24,12 +24,13 @@ from sub import views
 urlpatterns = [
     path('admin_pb/', admin.site.urls),
     path('login/', LoginView.as_view(), name='login'),
+    path('register/', views.register, name="register"),
     path('', include('sub.urls')),
     #path('accounts/', include('django.contrib.auth.urls')),
 
     path('', views.index),
     path('sub/', include('sub.urls')),
     
-    path('register/', views.register, name="register"),
+    
     
 ]
