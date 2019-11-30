@@ -6,8 +6,16 @@ class Contact(models.Model):
   name = models.CharField(max_length=100)
   email = models.EmailField(max_length=100)
 
+  def __str__(self):
+    return self.name
+
+
 class Category(models.Model):
   name = models.CharField(max_length=100, unique=True)
+  
+  def __str__(self):
+    return self.name
+
 
 class Product(models.Model):
   name = models.CharField(max_length=100)
@@ -17,11 +25,17 @@ class Product(models.Model):
   url = models.URLField()
   category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
+  def __str__(self):
+    return self.name
+
 class Substitute(models.Model):
   created = models.DateTimeField(auto_now_add=True)
   #usual_product = models.ForeignKey(Product, on_delete=models.CASCADE)
   substitute_product = models.ManyToManyField(Product, related_name='products', blank=True)
   contact = models.ForeignKey(Contact, on_delete=models.CASCADE)
+
+  def __str__(self):
+    return self.contact.name
 
 
 

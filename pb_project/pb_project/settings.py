@@ -131,3 +131,5 @@ INTERNAL_IPS = ['127.0.0.1']
 
 LOGIN_REDIRECT_URL = '/products/'
 LOGOUT_REDIRECT_URL = '/'
+
+AUTH_PROFILE_MODULE = 'sub.Contact'
