@@ -4,4 +4,7 @@ env/
 sub/.DS_Store
 sub/static/sub/.DS_Store
 sub/templates/.DS_Store
-sub/static/sub/.DS_Store
+sub/static/sub/.
+.DS_Store
+pb_project/.DS_Store
+sub/.DS_Store
