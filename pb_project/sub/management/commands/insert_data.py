@@ -1,11 +1,8 @@
 from django.core.management.base import BaseCommand, CommandError
+import requests
 
 from sub.models import Category, Product
 from sub.constants import CATEGORY_LIST, NUM_PRODUCTS 
-
-import requests
-
-
 
 class Command(BaseCommand):
     help = 'Insert data in the table Category, Product'
@@ -36,7 +33,8 @@ class Command(BaseCommand):
                                 url = r.json()["products"][i]["url"]
                                 store = r.json()['products'][i]['stores']
                                 score = (r.json()["products"][i]["nutrition_grade_fr"])
-                                obj1, created = Product.objects.update_or_create(name = name, description = description, url = url, store = store, score = score, category = obj)
+                                img = (r.json()["products"][i]["image_small_url"])
+                                obj1, created = Product.objects.update_or_create(name = name, description = description, url = url, store = store, score = score, img = img, category = obj)
                     except (TypeError):
                         pass
                     except (KeyError):

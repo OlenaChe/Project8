@@ -1,0 +1,21 @@
+{% if products|length_is:"0" %}
+    <div class="text-center">
+      Nous n'avons trouvé aucun résultat à cette requête !
+    </div>
+
+{% else %}
+    <div class="row text-center">
+        {% for product in products %}
+            <div class="col-sm-4 text-center">
+                <a href="{% url 'descriptions' product_id=product.id %}">
+                    <img class="img-responsive" src="{{ product.img }}" alt="{{ product.name }}">
+                </a>
+                <h6><a href="{% url 'descriptions' product_id=product.id %}">{{ product.name }} ({{ product.score }})</a></h6>
+                <a class="btn btn-primary btn-l js-scroll-trigger" href="#about">Ajouter aux favoris</a>
+                <br><br>
+            </div>   
+        {% endfor %} 
+    </div>
+        
+
+{% endif %}
