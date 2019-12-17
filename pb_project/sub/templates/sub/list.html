@@ -11,7 +11,7 @@
                     <img class="img-responsive" src="{{ product.img }}" alt="{{ product.name }}">
                 </a>
                 <h6><a href="{% url 'descriptions' product_id=product.id %}">{{ product.name }} ({{ product.score }})</a></h6>
-                <a class="btn btn-primary btn-l js-scroll-trigger" href="#about">Ajouter aux favoris</a>
+                <a class="btn btn-primary btn-l js-scroll-trigger" href="{% url 'substitutes' product_id=product.id %}">Trouver des substitutes</a>
                 <br><br>
             </div>   
         {% endfor %} 

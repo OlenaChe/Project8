@@ -37,15 +37,9 @@
     <div class="container">
       <a class="navbar-brand" href="{% url 'index' %}">
         <img src="{% static 'sub/img/logo_pur_beurre.png' %}" width="30" height="30" class="d-inline-block align-top text-primary" alt="">
-        <font color ="#E8A75D">Pur Beurre</font>
-      
-      <ul class="navbar-nav ml-auto my-2 my-lg-0">
-        <li class="nav-item">
-          <div class="collapse navbar-collapse" id="navbarResponsive">
-            <form class="form-inline my-2 my-lg-0">
-              <input class="form-control mr-sm-2" type="search" placeholder="Chercher" aria-label="Search">
-            </form>
-        </li>
+        <font color ="#E8A75D">Pur Beurre</font></a>
+      <a class="navbar-nav col-md-6 ml-md-auto" href="{% url 'index' %}"><a href="{% url 'index' %}#masthead" class="btn btn-light active" role="button" aria-pressed="true">Chercher</a>
+      <ul class="navbar-nav ml-auto my-2 my-lg-2"> 
         <li class="nav-item">
           <a href="{% url 'login' %}"><i class="far fa-user fa-2x mr-2"></i></a>
         </li>
@@ -61,18 +55,10 @@
     </div>
   </nav>
 
-
   <!-- Block content -->
   
   {% block content %}{% endblock %}
-       
 
-    
-
-  <section class="bg-light py-5">
-    <div class="container">
-    </div>
-  </section>
   <!-- Footer -->
   <footer class="navbar-expand-lg bg-light fixed-bottom py-3">
     <div class="container">
@@ -84,8 +70,7 @@
         </div>
         <div class="col-md-6 text-center">
           <div class="small text-center text-muted">
-            <p><a href="{% url 'index' %}#contact">CONTACT</a></p>
-            
+            <p><a href="{% url 'index' %}#contact">CONTACT</a></p>  
         </div>
       </div>
     </div>
