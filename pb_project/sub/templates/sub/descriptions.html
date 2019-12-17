@@ -24,16 +24,15 @@
   <div class="container">
     <div class="row h-25 justify-content-center align-items-center">
       <div class="col-sm-6 text-center">
-        <h5 class="mt-0">Nutriscore</h5>   
-        <h3>{{ product_score }}</h3>
+        <img class="img-responsive" src= "https://static.openfoodfacts.org/images/misc/nutriscore-{{product_score}}.svg"> 
       </div>
       <div class="col-sm-6 text-center">
-        <h5 class="mt-0">Repères nutritionnel pour 100g</h5>    
-        <h3>{{ product_score }}</h3>
+        <img class="img-responsive" src= "{{ product_nutrition }}">    
       </div>
     </div>
+    <br>
     <div class="row h-25 justify-content-center align-items-center"> 
-      <a class="btn btn-primary btn-l js-scroll-trigger" href="https://fr.openfoodfacts.org/produit/80762003/nutela-ferrero">Voir la fish d'Open Food Facts</a>
+      <a class="btn btn-primary btn-l js-scroll-trigger" href="{{ product_url }}">Voir la fish d'Open Food Facts</a>
     </div>
   </div>
 </section>

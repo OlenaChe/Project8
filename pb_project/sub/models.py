@@ -40,7 +40,8 @@ class Product(models.Model):
   score = models.CharField(max_length=1)
   store = models.CharField(max_length=200)
   url = models.URLField()
-  img = models.TextField(default='ups')
+  nutrition = models.TextField(default='X')
+  img = models.TextField(default='X')
   category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
   def __str__(self):

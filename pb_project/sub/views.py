@@ -47,9 +47,6 @@ def substitutes(request, product_id):
         }
     return render(request, 'sub/substitutes.html', context)  
 
-
-
-
 def products(request):
     return render(request, 'sub/products.html')
     
@@ -58,12 +55,14 @@ def mentions(request):
 
 def descriptions(request, product_id):
     product = Product.objects.get(pk=product_id)
-    #product_name = " ".join(products)
     context = {
         'product_name': product.name,
         'product_description': product.description,
         'product_score': product.score,
         'product_url': product.url,
         'product_img': product.img,
+        'product_url': product.url,
+        'product_nutrition': product.nutrition,
+
     }
     return render(request, 'sub/descriptions.html', context)

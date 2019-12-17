@@ -17,15 +17,17 @@ class Command(BaseCommand):
             for i in range(100):
                 if i < NUM_PRODUCTS:
                     product = {"name": "", "description": "", "url": "",
-                               "score": "", "category": "", "store": ""}
+                               "score": "", "category": "", "store": "", "nutrition": ""}
                     try:
-                        if (len(r.json()["products"][i]["product_name_fr"]) > 2
+                            if (len(r.json()["products"][i]["product_name_fr"]) > 2
                             and
                             len(r.json()["products"][i]["generic_name_fr"]) > 2
                             and
                             len(r.json()["products"][i]["url"]) > 2
                             and
-                            (len(r.json()["products"][i]["nutrition_grade_fr"]) >= 1) 
+                            len(r.json()["products"][i]["nutrition_grade_fr"]) >= 1
+                            and
+                            len(r.json()["products"][i]["image_nutrition_url"]) >= 2 
                             and
                             len(r.json()["products"][i]["stores"]) > 2):
                                 name = (r.json()["products"][i]["product_name_fr"])
@@ -34,7 +36,8 @@ class Command(BaseCommand):
                                 store = r.json()['products'][i]['stores']
                                 score = (r.json()["products"][i]["nutrition_grade_fr"])
                                 img = (r.json()["products"][i]["image_small_url"])
-                                obj1, created = Product.objects.update_or_create(name = name, description = description, url = url, store = store, score = score, img = img, category = obj)
+                                nutrition = (r.json()["products"][i]["image_nutrition_url"])
+                                obj1, created = Product.objects.update_or_create(name = name, description = description, url = url, store = store, score = score, img = img, nutrition = nutrition, category = obj)
                     except (TypeError):
                         pass
                     except (KeyError):
