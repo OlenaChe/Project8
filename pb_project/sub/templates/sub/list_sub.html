@@ -1,0 +1,23 @@
+{% if sub|length_is:"0" %}
+    <div class="text-center">
+      Nous n'avons trouvé aucun résultat à cette requête !
+    </div>
+
+{% else %}
+    <div class="row text-center">
+        {% for product in sub %}
+            <div class="col-sm-4 text-center">
+                <a href="{% url 'descriptions' product_id=product.id %}">
+                    <img class="img-responsive" src="{{ product.img }}" alt="{{ product.name }}">
+                </a>
+                <h6><a href="{% url 'descriptions' product_id=product.id %}">{{ product.name }} ({{ product.score }})</a></h6>
+                <div class="row h-25 justify-content-center align-items-center"> 
+                    <a class="btn btn-primary btn-l js-scroll-trigger" href="https://fr.openfoodfacts.org/produit/80762003/nutela-ferrero">Sauvegarder</a>
+                </div>
+                <br><br>
+            </div>   
+        {% endfor %} 
+    </div>
+        
+
+{% endif %}

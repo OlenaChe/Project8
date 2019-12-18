@@ -42,7 +42,12 @@ def results(request):
 
 def substitutes(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
+    product_name = product.name
+    category = product.category
+    product_score = product.score
+    sub = Product.objects.filter(category=product.category).filter(score__lt=product_score)
     context = {
+            'sub': sub,
             'product_name': product.name,    
         }
     return render(request, 'sub/substitutes.html', context)  
