@@ -47,10 +47,9 @@ class Product(models.Model):
   def __str__(self):
     return self.name
 
-class Substitute(models.Model):
+class Favorite(models.Model):
   created = models.DateTimeField(auto_now_add=True)
-  usual_product = models.ForeignKey(Product, default=1, related_name='usual_product', on_delete=models.CASCADE)
-  substitute_product = models.ForeignKey(Product, default=1, related_name='substitute_product', on_delete=models.CASCADE)
+  favorite = models.ForeignKey(Product, default=1, related_name='substitute_product', on_delete=models.CASCADE)
   #substitute_product = models.ManyToManyField(Product, related_name='substitute_product', blank=True)
   contact = models.ForeignKey(Contact, on_delete=models.CASCADE)
 

@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from sub.models import Contact, Category, Product, Substitute
+from sub.models import Contact, Category, Product, Favorite
 
 
 class UserProfileAdmin(admin.ModelAdmin):
@@ -12,5 +12,5 @@ class ContactAdmin(admin.ModelAdmin):
 admin.site.register(Contact, ContactAdmin)
 admin.site.register(Category)
 admin.site.register(Product)
-admin.site.register(Substitute)
+admin.site.register(Favorite)
 

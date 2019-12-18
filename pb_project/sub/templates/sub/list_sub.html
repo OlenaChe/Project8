@@ -12,7 +12,7 @@
                 </a>
                 <h6><a href="{% url 'descriptions' product_id=product.id %}">{{ product.name }} ({{ product.score }})</a></h6>
                 <div class="row h-25 justify-content-center align-items-center"> 
-                    <a class="btn btn-primary btn-l js-scroll-trigger" href="https://fr.openfoodfacts.org/produit/80762003/nutela-ferrero">Sauvegarder</a>
+                    <a class="btn btn-primary btn-l js-scroll-trigger" href="{% url 'favorite' product_id=product.id %}">Sauvegarder</a>
                 </div>
                 <br><br>
             </div>   

@@ -1,0 +1,20 @@
+{% if favorite|length_is:"0" %}
+
+    <div class="text-center">
+      Nous n'avons trouvé aucun résultat à cette requête !
+    </div>
+
+{% else %}
+    <div class="row text-center">
+        {% for p in favorite %}
+            <div class="col-sm-4 text-center">
+                <a href="{% url 'descriptions' product_id=p.favorite.id %}">
+                    <img class="img-responsive" src="{{ p.favorite.img }}" alt="{{ p.favorite.name }}">
+                </a>
+                <h6><a href="{% url 'descriptions' product_id=p.favorite.id %}">{{ p.favorite.name }} ({{ p.favorite.score }})</a></h6>
+                <br><br>
+            </div>   
+        {% endfor %} 
+    </div>
+        
+{% endif %}

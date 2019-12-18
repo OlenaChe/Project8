@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<!-- Products -->
+<!-- Account -->
 <section class="bg-light py-5">
   <div class="container">
   </div>
@@ -13,7 +13,7 @@
       <h4 class="align-text-bottom">________</h4>
     </div>
     <div class="row h-25 justify-content-center align-items-center">
-      <h4 class="align-text-bottom">Mes aliments</h4>
+      <h4 class="align-text-bottom">Produit ajouté !</h4>
     </div>
     <div class="row h-25 justify-content-center align-items-center">
       <h4 class="align-text-bottom">________</h4>
@@ -22,10 +22,13 @@
 </section>
 <section class="page-section">
   <div class="container">
-    {% include 'sub/list_favorites.html' %}
-  </div>
+    <div class="row h-25 justify-content-center align-items-center">
+      <h6 class="align-text-bottom">Salut {{ contact }}, vous avez ajouté " {{ favorite }} " aux favoris.</h6>
+    </div>
+    <div class="row h-25 justify-content-center align-items-center">
+      <h6 class="align-text-bottom">Сliquez sur la carotte pour voir consulter la liste des produits sélectionnés</h6>
+    </div>
+  </div> 
 </section>
-
-
 
 {% endblock %}

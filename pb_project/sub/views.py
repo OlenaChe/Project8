@@ -1,11 +1,12 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
-from django.core.paginator import Paginator
+from django.contrib.auth.decorators import login_required
+#from django.core.paginator import Paginator
 
 from .forms import RegisterForm
 
 
-from .models import Contact, Product, Category, Substitute
+from .models import Contact, Product, Category, Favorite
 
 import requests
 
@@ -52,8 +53,26 @@ def substitutes(request, product_id):
         }
     return render(request, 'sub/substitutes.html', context)  
 
+@login_required
+def get_favorite(request, product_id):
+    favorite = get_object_or_404(Product, pk=product_id)
+    contact = Contact.objects.get(user_id=request.user)
+    context = {
+        'favorite': favorite,
+        'contact': contact,    
+    }
+    obj, created = Favorite.objects.update_or_create(favorite = favorite, contact = contact)
+    return render(request, 'sub/add_favorite.html', context)  
+
+@login_required
 def products(request):
-    return render(request, 'sub/products.html')
+    favorite = Favorite.objects.all()
+    contact = Contact.objects.get(user_id=request.user)
+    context = {
+        'favorite': favorite,
+        'contact': contact,    
+    }
+    return render(request, 'sub/products.html', context)
     
 def mentions(request):
     return render(request, 'sub/mentions.html')
